@@ -21,11 +21,33 @@ class Sort():
         return self.sorted_list
     
     def selectionsort(self):
-        self.sorted_list = []
+        mylist = self.list
+        mincounter = 0
+        for _ in range(0, len(mylist)):
+            currentmin = mylist[mincounter]
+            curr_ix = mincounter
+            for i in range(mincounter + 1, len(mylist)):
+                if mylist[i] < currentmin:
+                    currentmin = mylist[i]
+                    curr_ix = i 
+
+            temp = mylist[mincounter]
+            mylist[mincounter] = mylist[curr_ix]
+            mylist[curr_ix] = temp
+            mincounter += 1
+        
+        self.sorted_list = mylist
+        return self.sorted_list
+    
+    def insertionsort(self):
+        mylist = self.list
+
         
 
-sortobj = Sort(mylist = [2,1,3])
+sortobj = Sort(mylist = [3123,2123141,12331, 1])
+print(sortobj.selectionsort())
 
-print(sortobj.bubblesort())
+#%%
+
 
 #%%
