@@ -41,11 +41,21 @@ class Sort():
     
     def insertionsort(self):
         mylist = self.list
+        print(mylist)
 
-        
+        for i in range(1, len(mylist)):
+            for j in range(0, i):
+                if mylist[i] < mylist[j]:
+                    temp = mylist[i]
+                    for k in range(i -1, j-1, -1):
+                        mylist[k+1] = mylist[k]
+                    mylist[j] = temp
+                    print(mylist)
+                    break
+        return mylist
 
-sortobj = Sort(mylist = [3123,2123141,12331, 1])
-print(sortobj.selectionsort())
+sortobj = Sort(mylist = [125123,39123 ,2123123, 124123511])
+print(sortobj.insertionsort())
 
 #%%
 
